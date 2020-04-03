@@ -24,7 +24,7 @@ class Task
     private $title;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="smallint")
      */
     private $difficulty;
 
@@ -60,12 +60,12 @@ class Task
         return $this;
     }
 
-    public function getDifficulty(): ?bool
+    public function getDifficulty(): ?int
     {
         return $this->difficulty;
     }
 
-    public function setDifficulty(bool $difficulty): self
+    public function setDifficulty(int $difficulty): self
     {
         $this->difficulty = $difficulty;
 

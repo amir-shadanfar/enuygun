@@ -28,6 +28,16 @@ class Developer
      */
     private $tasks;
 
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $task_difficulty;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $task_duration;
+
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
@@ -72,6 +82,30 @@ class Developer
         if ($this->tasks->contains($task)) {
             $this->tasks->removeElement($task);
         }
+
+        return $this;
+    }
+
+    public function getTaskDifficulty(): ?int
+    {
+        return $this->task_difficulty;
+    }
+
+    public function setTaskDifficulty(int $task_difficulty): self
+    {
+        $this->task_difficulty = $task_difficulty;
+
+        return $this;
+    }
+
+    public function getTaskDuration(): ?int
+    {
+        return $this->task_duration;
+    }
+
+    public function setTaskDuration(int $task_duration): self
+    {
+        $this->task_duration = $task_duration;
 
         return $this;
     }
