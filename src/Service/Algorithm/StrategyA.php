@@ -23,7 +23,7 @@ class StrategyA implements Strategy
      * @param array $developers
      * @return float|int
      */
-    public function getMinimumDuration(array $developers, array $tasks)
+    public static function getMinimumDuration(array $developers, array $tasks)
     {
         $total_task_power = 0;
         foreach ($tasks as $task) {
@@ -45,7 +45,7 @@ class StrategyA implements Strategy
         $result = [];
         $temp_developers = [];
         $used_tasks_index = [];
-        $minimum_week = $this->getMinimumDuration($this->developers, $this->tasks);
+        $minimum_week = self::getMinimumDuration($this->developers, $this->tasks);
         $j = 0;
         foreach ($this->developers as $dev) {
             $temp_developers[$j]['info'] = $dev;
