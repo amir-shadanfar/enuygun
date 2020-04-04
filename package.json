@@ -1,0 +1,30 @@
+{
+  "name": "enuygun",
+  "version": "1.0.0",
+  "description": "2 ayrı provider'dan gelecek to-do iş bilgilerini çekerek development ekibine haftalık olarak paylaştıracak ve ekrana çıktısını verecek bir web uygulama.\r Her provider servisinde task ismi, süre (saat olarak), zorluk derecesi vermektedir. Toplam 5 developer var ve her developer’ın 1 saatte yapabildiği iş büyüklüğü aşağıda verildiği gibidir :",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amir-shadanfar/enuygun.git"
+  },
+  "author": "Amir shadanfar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amir-shadanfar/enuygun/issues"
+  },
+  "homepage": "https://github.com/amir-shadanfar/enuygun#readme",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.28.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1"
+  }
+}
