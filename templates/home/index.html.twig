@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TO-DO list{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+
+        <h3>this To-Do list takes: </h3>
+        <p>{{ minimum_duration }} weeks / (or {{ minimum_duration * 7 }} days) / (or {{ minimum_duration * 7 * 24 }} hours)</p>
+
+        {% for dev in developers %}
+            <ul>
+                {{ dev.getName() }}
+                {% for task in dev.getTasks() %}
+                    <li>{{ task.getTitle() }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}
