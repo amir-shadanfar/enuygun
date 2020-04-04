@@ -3,18 +3,59 @@
 {% block title %}TO-DO list{% endblock %}
 
 {% block body %}
-    <div class="example-wrapper">
+    <div class="container">
+        <h1>TO-DO Planing</h1>
 
-        <h3>this To-Do list takes: </h3>
-        <p>{{ minimum_duration }} weeks / (or {{ minimum_duration * 7 }} days) / (or {{ minimum_duration * 7 * 24 }} hours)</p>
+        <div class="alert alert-info" role="alert">
+            <b>Estimated time:</b> {{ minimum_duration['weeks'] }} weeks | (={{ minimum_duration['days'] }} days) | (={{ minimum_duration['hours'] }} hours)
+        </div>
 
-        {% for dev in developers %}
-            <ul>
-                {{ dev.getName() }}
-                {% for task in dev.getTasks() %}
-                    <li>{{ task.getTitle() }}</li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
+        <section id="tabs" class="project-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                {% for dev in developers %}
+                                    <a class="nav-item nav-link {% if(loop.index==1) %}active{% endif %}"
+                                       id="nav-{{ dev.getName() }}-tab" data-toggle="tab" href="#nav-{{ dev.getName() }}"
+                                       role="tab" aria-controls="nav-{{ dev.getName() }}"
+                                       aria-selected="true">{{ dev.getName() }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            {% for dev in developers %}
+                                <div class="tab-pane fade {% if(loop.index==1) %}show active{% endif %}"
+                                     id="nav-{{ dev.getName() }}" role="tabpanel"
+                                     aria-labelledby="nav-{{ dev.getName() }}-tab">
+                                    <table class="table" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>Task Name</th>
+                                            <th>Duration</th>
+                                            <th>Difficulty</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for task in dev.getTasks() %}
+                                            <tr>
+                                                <td>{{ task.getTitle() }}</td>
+                                                <td>{{ task.getDuration() }} h</td>
+                                                <td><span class="badge badge-dark">{{ task.getDifficulty() }}</span>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
+
 {% endblock %}
