@@ -29,5 +29,7 @@ Her provider servisinde task ismi, süre (saat olarak), zorluk derecesi vermekte
 - php bin/console doctrine:migrations:migrate 
 - php bin/console doctrine:fixtures:load
 
-> After these steps, you should run console command to get data from APIs and save on database:
+
+> For run seed command you should change environment to dev mode!
+After these steps, you should run console command to get data from APIs and save on database:
 - php bin/console api:fetch [one/two | --empty 1]
